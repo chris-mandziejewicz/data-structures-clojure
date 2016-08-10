@@ -1,0 +1,233 @@
+Lab report for BST Lab - cmandzie
+Timestamp: 2013-11-27 19:13:22
+
+|  :scenario |                                                    :title |                                   :result | :score |
+|------------+-----------------------------------------------------------+-------------------------------------------+--------|
+|    working |                     Test student code vs instructor tests |                                      Pass |     45 |
+| qualifying |                     Test student tests vs instructor code |                                      Pass |      5 |
+|    broke-1 |                               Add doesn't increment size. |      Pass: Student tests detected errors. |      5 |
+|    broke-2 |                                 Add swaps left and right. |      Pass: Student tests detected errors. |      5 |
+|    broke-3 |                                    Find only checks left. |      Pass: Student tests detected errors. |      5 |
+|    broke-4 | Two child delete copies predecessor instead of moving it. |      Pass: Student tests detected errors. |      5 |
+|    broke-5 |                        Map tree does keys and not values. |      Pass: Student tests detected errors. |      5 |
+|    broke-6 |                          Delete decrements size too much. |      Pass: Student tests detected errors. |      5 |
+|    broke-7 |                                Delete truncates subtrees. | Fail: Student tests did not detect error. |      0 |
+|    broke-8 |                         Delete value doesn't always work. |      Pass: Student tests detected errors. |      5 |
+|    broke-9 |                    Delete value decrements size too much. |      Pass: Student tests detected errors. |      5 |
+|   broke-10 |                   Add sometimes increments size too much. |      Pass: Student tests detected errors. |      5 |
+|      total |                                               Total Score |                                           |     95 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+...................
+
+Finished in 0.02013 seconds
+19 examples, 0 failures
+
+
+** Details for Test student tests vs instructor code
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+.................
+
+Finished in 0.01544 seconds
+17 examples, 0 failures
+
+
+** Details for Add doesn't increment size.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+F.F..............
+
+Failures:
+
+  1) add should work on empty trees
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left nil, :key a, :value 5, :right nil}, :size 1}
+          got: #bst.core.BST{:root #bst.core.BNode{:left nil, :key a, :value 5, :right nil}, :size 0} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:15
+
+  2) add should work multiple times
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 4, :right nil}, :key b, :value 5, :right #bst.core.BNode{:left nil, :key c, :value 6, :right #bst.core.BNode{:left nil, :key d, :value 7, :right nil}}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 4, :right nil}, :key b, :value 5, :right #bst.core.BNode{:left nil, :key c, :value 6, :right #bst.core.BNode{:left nil, :key d, :value 7, :right nil}}}, :size 3} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:23
+
+Finished in 0.04717 seconds
+17 examples, 2 failures
+
+
+** Details for Add swaps left and right.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+..F..............
+
+Failures:
+
+  1) add should work multiple times
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 4, :right nil}, :key b, :value 5, :right #bst.core.BNode{:left nil, :key c, :value 6, :right #bst.core.BNode{:left nil, :key d, :value 7, :right nil}}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left #bst.core.BNode{:left nil, :key d, :value 7, :right nil}, :key a, :value 4, :right nil}, :key b, :value 5, :right #bst.core.BNode{:left nil, :key c, :value 6, :right nil}}, :size 4} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:23
+
+Finished in 0.04780 seconds
+17 examples, 1 failures
+
+
+** Details for Find only checks left.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+....F............
+
+Failures:
+
+  1) find checks right
+     Expected: 6
+          got: nil (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:35
+
+Finished in 0.01774 seconds
+17 examples, 1 failures
+
+
+** Details for Two child delete copies predecessor instead of moving it.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+.......F..F..FF..
+
+Failures:
+
+  1) delete should work with the top one
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 1, :right nil}, :key b, :value 2, :right nil}, :key c, :value 3, :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key e, :value 5, :right nil}, :key f, :value 6, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 6}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 1, :right nil}, :key b, :value 2, :right #bst.core.BNode{:left nil, :key c, :value 3, :right nil}}, :key c, :value 3, :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key e, :value 5, :right nil}, :key f, :value 6, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 6} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:51
+
+  2) delete does not shorten subtrees
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key b, :value 2, :right nil}, :key d, :value 4, :right #bst.core.BNode{:left nil, :key e, :value 5, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key b, :value 2, :right nil}, :key d, :value 4, :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key e, :value 5, :right nil}, :key e, :value 5, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 4} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:63
+
+  3) delete-value should work on the right side
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key b, :value 2, :right nil}, :key d, :value 4, :right #bst.core.BNode{:left nil, :key e, :value 5, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key b, :value 2, :right nil}, :key d, :value 4, :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key e, :value 5, :right nil}, :key e, :value 5, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 4} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:77
+
+  4) delete-value should work with the top one
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 1, :right nil}, :key b, :value 2, :right nil}, :key c, :value 3, :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key e, :value 5, :right nil}, :key f, :value 6, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 6}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 1, :right nil}, :key b, :value 2, :right #bst.core.BNode{:left nil, :key c, :value 3, :right nil}}, :key c, :value 3, :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key e, :value 5, :right nil}, :key f, :value 6, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 6} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:81
+
+Finished in 0.10186 seconds
+17 examples, 4 failures
+
+
+** Details for Map tree does keys and not values.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+................F
+
+Failures:
+
+  1) map-tree should work
+     clojure.lang.Symbol cannot be cast to java.lang.Number
+     java.lang.ClassCastException: clojure.lang.Symbol cannot be cast to java.lang.Number
+     	... 2 stack levels elided ...
+     	at bst.core$map_tree_aux.invoke(core.clj:158)
+     	at bst.core$map_tree_aux.invoke(core.clj:157)
+     	at bst.core$map_tree.invoke(core.clj:165)
+     	at bst.core_spec$eval1382$fn__1383$fn__1388.invoke(/home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:91)
+     	... 42 stack levels elided ...
+
+Finished in 0.00701 seconds
+17 examples, 1 failures
+
+
+** Details for Delete decrements size too much.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+.........F.......
+
+Failures:
+
+  1) delete does not make size less then 0
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:59
+
+Finished in 0.01809 seconds
+17 examples, 1 failures
+
+
+** Details for Delete truncates subtrees.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+.................
+
+Finished in 0.00615 seconds
+17 examples, 0 failures
+
+
+** Details for Delete value doesn't always work.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+.............F...
+
+Failures:
+
+  1) delete-value should work on the right side
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key b, :value 2, :right nil}, :key d, :value 4, :right #bst.core.BNode{:left nil, :key e, :value 5, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key b, :value 2, :right nil}, :key d, :value 4, :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key e, :value 5, :right nil}, :key f, :value 6, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 4} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:77
+
+Finished in 0.09206 seconds
+17 examples, 1 failures
+
+
+** Details for Delete value decrements size too much.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+............FF...
+
+Failures:
+
+  1) delete-value should not make size less then 0
+     Expected: 0
+          got: -1 (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:73
+
+  2) delete-value should work on the right side
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key b, :value 2, :right nil}, :key d, :value 4, :right #bst.core.BNode{:left nil, :key e, :value 5, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key b, :value 2, :right nil}, :key d, :value 4, :right #bst.core.BNode{:left #bst.core.BNode{:left nil, :key e, :value 5, :right nil}, :key f, :value 6, :right #bst.core.BNode{:left nil, :key g, :value 7, :right nil}}}, :size 4} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:77
+
+Finished in 0.11730 seconds
+17 examples, 2 failures
+
+
+** Details for Add sometimes increments size too much.
+
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
+WARNING: find already refers to: #'clojure.core/find in namespace: bst.core-spec, being replaced by: #'bst.core/find
+..F..............
+
+Failures:
+
+  1) add should work multiple times
+     Expected: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 4, :right nil}, :key b, :value 5, :right #bst.core.BNode{:left nil, :key c, :value 6, :right #bst.core.BNode{:left nil, :key d, :value 7, :right nil}}}, :size 4}
+          got: #bst.core.BST{:root #bst.core.BNode{:left #bst.core.BNode{:left nil, :key a, :value 4, :right nil}, :key b, :value 5, :right #bst.core.BNode{:left nil, :key c, :value 6, :right #bst.core.BNode{:left nil, :key d, :value 7, :right nil}}}, :size 6} (using =)
+     /home/grader/quarry/bst-lab/cmandzie/running/spec/bst/core_spec.clj:23
+
+Finished in 0.07627 seconds
+17 examples, 1 failures

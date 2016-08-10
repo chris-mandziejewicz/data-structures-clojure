@@ -1,0 +1,228 @@
+Lab report for Doubly Linked Lists with Atoms - cmandzie
+Timestamp: 2013-10-31 14:49:17
+
+|  :scenario |                                   :title |                              :result | :score |
+|------------+------------------------------------------+--------------------------------------+--------|
+|    working |    Test student code vs instructor tests |                                 Pass |     45 |
+| qualifying |    Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |     Insert front doesn't increment size. | Pass: Student tests detected errors. |      5 |
+|    broke-2 |  Insert front doens't set previous link. | Pass: Student tests detected errors. |      5 |
+|    broke-3 |               Insert last inserts front. | Pass: Student tests detected errors. |      5 |
+|    broke-4 |        Insert-sorted misses a back-link. | Pass: Student tests detected errors. |      5 |
+|    broke-5 |         Index-forward doesn't return nil | Pass: Student tests detected errors. |      5 |
+|    broke-6 | Index-backward returns positive numbers. | Pass: Student tests detected errors. |      5 |
+|    broke-7 |                Index-backward off by one | Pass: Student tests detected errors. |      5 |
+|    broke-8 |            Delete assumes list is sorted | Pass: Student tests detected errors. |      5 |
+|    broke-9 |      Reverse doesn't fix the back edges. | Pass: Student tests detected errors. |      5 |
+|   broke-10 |        List to Dlist messes up pointers. | Pass: Student tests detected errors. |      5 |
+|      total |                              Total Score |                                      |    100 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+....................................
+
+Finished in 0.02743 seconds
+36 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Test student tests vs instructor code
+
+..........................
+
+Finished in 0.00525 seconds
+26 examples, 0 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert front doesn't increment size.
+
+..FF......................
+
+Failures:
+
+  1) Insert-front should have size 1 on empty list
+     Expected: 1
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-1/spec/dlist_atom/core_spec.clj:30
+
+  2) Insert-front should update size when called multiple times
+     Expected: 3
+          got: 0 (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-1/spec/dlist_atom/core_spec.clj:37
+
+Finished in 0.01772 seconds
+26 examples, 2 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert front doens't set previous link.
+
+.....F....................
+
+Failures:
+
+  1) Insert-front should not miss a back-link
+     Expected: 5
+          got: sentinel (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-2/spec/dlist_atom/core_spec.clj:50
+
+Finished in 0.01735 seconds
+26 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert last inserts front.
+
+.........F.........F.....F
+
+Failures:
+
+  1) Insert-last should work when called several times
+     Expected: (5 10 15)
+          got: (15 10 5) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-3/spec/dlist_atom/core_spec.clj:75
+
+  2) list-to-dlist should work on full lists
+     Expected: (5 10 15)
+          got: (15 10 5) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-3/spec/dlist_atom/core_spec.clj:133
+
+  3) show-dlist-reverse should work with full lists
+     Expected: (5 4 3 2 1)
+          got: (1 2 3 4 5) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-3/spec/dlist_atom/core_spec.clj:179
+
+Finished in 0.10418 seconds
+26 examples, 3 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Insert-sorted misses a back-link.
+
+.............F.......F.F..
+
+Failures:
+
+  1) Insert-sorted should work when called several times
+     Expected: (10 20 30)
+          got: (20 30) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-4/spec/dlist_atom/core_spec.clj:101
+
+  2) delete should work
+     Expected: (1 2 4 5)
+          got: (5) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-4/spec/dlist_atom/core_spec.clj:150
+
+  3) reverse should work with full lists
+     Expected: (5 4 3 2 1)
+          got: () (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-4/spec/dlist_atom/core_spec.clj:167
+
+Finished in 0.05234 seconds
+26 examples, 3 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-forward doesn't return nil
+
+................F.........
+
+Failures:
+
+  1) Index-forward is possible to return nil
+     Expected: nil
+          got: 3 (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-5/spec/dlist_atom/core_spec.clj:116
+
+Finished in 0.02657 seconds
+26 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-backward returns positive numbers.
+
+.................F........
+
+Failures:
+
+  1) Index-backward should work properly
+     Expected: -3
+          got: 2 (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-6/spec/dlist_atom/core_spec.clj:121
+
+Finished in 0.01892 seconds
+26 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Index-backward off by one
+
+.................F........
+
+Failures:
+
+  1) Index-backward should work properly
+     Expected: -3
+          got: -2 (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-7/spec/dlist_atom/core_spec.clj:121
+
+Finished in 0.02288 seconds
+26 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Delete assumes list is sorted
+
+.....................F....
+
+Failures:
+
+  1) delete should work
+     Expected: (1 2 4 5)
+          got: (1 2 3 4 5) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-8/spec/dlist_atom/core_spec.clj:150
+
+Finished in 0.09560 seconds
+26 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for Reverse doesn't fix the back edges.
+
+.......................F..
+
+Failures:
+
+  1) reverse should work with full lists
+     Expected: (5 4 3 2 1)
+          got: (5) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-9/spec/dlist_atom/core_spec.clj:167
+
+Finished in 0.03946 seconds
+26 examples, 1 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse
+
+
+** Details for List to Dlist messes up pointers.
+
+...................F.....F
+
+Failures:
+
+  1) list-to-dlist should work on full lists
+     Expected: (5 10 15)
+          got: (15 10 5) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-10/spec/dlist_atom/core_spec.clj:133
+
+  2) show-dlist-reverse should work with full lists
+     Expected: (5 4 3 2 1)
+          got: (1 2 3 4 5) (using =)
+     /home/grader/quarry/dlist-atom-lab/cmandzie/broke-10/spec/dlist_atom/core_spec.clj:179
+
+Finished in 0.04829 seconds
+26 examples, 2 failures
+WARNING: reverse already refers to: #'clojure.core/reverse in namespace: dlist-atom.core-spec, being replaced by: #'dlist-atom.core/reverse

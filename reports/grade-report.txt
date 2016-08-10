@@ -1,0 +1,18 @@
+Grade Report for Chris K. Mandziejewicz
+Produced 2013-11-06 15:07
+Netid: cmandzie cwid: A20281394
+Course: cs331 (2013-08)  Section: 02
+
+              Assignment Status Raw Max    Norm Weight  Points 
+------------------------ ------ --- --- ------- ------ ------- 
+             Exam 1 (v1) Graded  55  66  83.33% 0.7500 62.5000 
+             Exam 1 (v2)    n/a   0  66   0.00% 0.0000  0.0000 
+         Linked List Lab Graded 100 100 100.00% 0.0500  5.0000 
+         Stack Queue Lab Graded 100 100 100.00% 0.0500  5.0000 
+  Doubly Linked List Lab Graded 100 100 100.00% 0.0500  5.0000 
+        Clojure Activity Graded   1   1 100.00% 0.0250  2.5000 
+         Record Activity Graded   1   1 100.00% 0.0250  2.5000 
+      Recursion Activity Graded   1   1 100.00% 0.0250  2.5000 
+Immutable Lists Activity Graded   1   1 100.00% 0.0250  2.5000 
+------------------------ ------ --- --- ------- ------ ------- 
+                   Total                 87.50% 1.0000 87.5000 

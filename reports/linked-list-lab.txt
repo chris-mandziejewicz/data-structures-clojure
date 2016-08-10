@@ -1,0 +1,213 @@
+Lab report for Linked List Lab - cmandzie
+Timestamp: 2013-09-25 17:36:22
+
+|  :scenario |                                    :title |                              :result | :score |
+|------------+-------------------------------------------+--------------------------------------+--------|
+|    working |     Test student code vs instructor tests |                                 Pass |     45 |
+| qualifying |     Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |             Insert at end mishandles nil. | Pass: Student tests detected errors. |      5 |
+|    broke-2 |     Sorted insert sorts in reverse order. | Pass: Student tests detected errors. |      5 |
+|    broke-3 |     Sorted insert doesn't recycle memory. | Pass: Student tests detected errors. |      5 |
+|    broke-4 |          Search doesn't handle base case. | Pass: Student tests detected errors. |      5 |
+|    broke-5 |                Delete removes all copies. | Pass: Student tests detected errors. |      5 |
+|    broke-6 |                           Delete doesn't. | Pass: Student tests detected errors. |      5 |
+|    broke-7 |              Delete all only deletes one. | Pass: Student tests detected errors. |      5 |
+|    broke-8 |                Delete all truncates list. | Pass: Student tests detected errors. |      5 |
+|    broke-9 |          Efficient delete doesn't delete. | Pass: Student tests detected errors. |      5 |
+|   broke-10 | Efficient delete doesn't return original. | Pass: Student tests detected errors. |      5 |
+|      total |                               Total Score |                                      |    100 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+........................
+
+Finished in 0.02039 seconds
+24 examples, 0 failures
+
+
+** Details for Test student tests vs instructor code
+
+..........................
+
+Finished in 0.00447 seconds
+26 examples, 0 failures
+
+
+** Details for Insert at end mishandles nil.
+
+.......FFF................
+
+Failures:
+
+  1) insert-at-end creates a cons cell
+     Expected: #linked_lists.core.Cons{:car 20, :cdr nil}
+          got: nil (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-1/spec/linked_lists/core_spec.clj:37
+
+  2) insert-at-end should work with empty lists
+     Expected: nil
+     not to =: nil
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-1/spec/linked_lists/core_spec.clj:39
+
+  3) insert-at-end should insert at the far end, copying the whole list as it goes
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr #linked_lists.core.Cons{:car 25, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}} (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-1/spec/linked_lists/core_spec.clj:42
+
+Finished in 0.04706 seconds
+26 examples, 3 failures
+
+
+** Details for Sorted insert sorts in reverse order.
+
+............F.............
+
+Failures:
+
+  1) sorted insert should insert an element into a sorted list
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 25, :cdr #linked_lists.core.Cons{:car 27, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}}}
+          got: #linked_lists.core.Cons{:car 27, :cdr #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 25, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}}} (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-2/spec/linked_lists/core_spec.clj:52
+
+Finished in 0.05768 seconds
+26 examples, 1 failures
+
+
+** Details for Sorted insert doesn't recycle memory.
+
+...........F..............
+
+Failures:
+
+  1) sorted insert should recycle memory
+     Expected truthy but was: false
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-3/spec/linked_lists/core_spec.clj:49
+
+Finished in 0.00723 seconds
+26 examples, 1 failures
+
+
+** Details for Search doesn't handle base case.
+
+.............F.F.........F
+
+Failures:
+
+  1) search should work with empty lists
+     Expected: false
+          got: true (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-4/spec/linked_lists/core_spec.clj:56
+
+  2) search should return false if the element is not in the list
+     Expected: false
+          got: true (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-4/spec/linked_lists/core_spec.clj:62
+
+  3) efficient-delete should return the original list if the element is not in the list
+     Expected truthy but was: false
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-4/spec/linked_lists/core_spec.clj:95
+
+Finished in 0.00678 seconds
+26 examples, 3 failures
+
+
+** Details for Delete removes all copies.
+
+..................F.......
+
+Failures:
+
+  1) delete Should not delete all the elements
+     Expected: #linked_lists.core.Cons{:car 30, :cdr nil}
+     not to =: #linked_lists.core.Cons{:car 30, :cdr nil}
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-5/spec/linked_lists/core_spec.clj:72
+
+Finished in 0.05254 seconds
+26 examples, 1 failures
+
+
+** Details for Delete doesn't.
+
+...................F....F.
+
+Failures:
+
+  1) delete Should delete the element if it is in the list
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 25, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-6/spec/linked_lists/core_spec.clj:75
+
+  2) efficient-delete should delete the element if it is in the list
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 25, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-6/spec/linked_lists/core_spec.clj:92
+
+Finished in 0.07444 seconds
+26 examples, 2 failures
+
+
+** Details for Delete all only deletes one.
+
+......................F...
+
+Failures:
+
+  1) delete-all should delete all the elements found in the list
+     Expected: #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 6, :cdr #linked_lists.core.Cons{:car 7, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 6, :cdr #linked_lists.core.Cons{:car 5, :cdr #linked_lists.core.Cons{:car 7, :cdr nil}}}}}} (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-7/spec/linked_lists/core_spec.clj:85
+
+Finished in 0.02082 seconds
+26 examples, 1 failures
+
+
+** Details for Delete all truncates list.
+
+......................F...
+
+Failures:
+
+  1) delete-all should delete all the elements found in the list
+     Expected: #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 6, :cdr #linked_lists.core.Cons{:car 7, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 4, :cdr nil} (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-8/spec/linked_lists/core_spec.clj:85
+
+Finished in 0.04266 seconds
+26 examples, 1 failures
+
+
+** Details for Efficient delete doesn't delete.
+
+......................F.F.
+
+Failures:
+
+  1) delete-all should delete all the elements found in the list
+     Expected: #linked_lists.core.Cons{:car 4, :cdr #linked_lists.core.Cons{:car 6, :cdr #linked_lists.core.Cons{:car 7, :cdr nil}}}
+          got: #linked_lists.core.Cons{:car 4, :cdr nil} (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-9/spec/linked_lists/core_spec.clj:85
+
+  2) efficient-delete should delete the element if it is in the list
+     Expected: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}
+          got: #linked_lists.core.Cons{:car 20, :cdr #linked_lists.core.Cons{:car 25, :cdr #linked_lists.core.Cons{:car 30, :cdr nil}}} (using =)
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-9/spec/linked_lists/core_spec.clj:92
+
+Finished in 0.06461 seconds
+26 examples, 2 failures
+
+
+** Details for Efficient delete doesn't return original.
+
+.........................F
+
+Failures:
+
+  1) efficient-delete should return the original list if the element is not in the list
+     Expected truthy but was: false
+     /home/grader/quarry/linked-list-lab/cmandzie/broke-10/spec/linked_lists/core_spec.clj:95
+
+Finished in 0.05323 seconds
+26 examples, 1 failures
